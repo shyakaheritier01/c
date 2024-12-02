@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Shyaka Store - Home</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F8F9FA; /* Neutral background */
+  color: #000000; /* Neutral text */
+}
+
+header {
+  background-color: #007BFF; /* Blue for professionalism */
+  color: #FFFFFF; /* White text */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #FFC107; /* Yellow for attention */
+}
+
+/* Main Section */
+main {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+main h2 {
+  color: #1ABC9C; /* Green for calmness */
+}
+
+main p {
+  color: #6C757D; /* Neutral gray */
+}
+
+/* Form Container */
+.form-container {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: #FFFFFF; /* White for simplicity */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.form-container:hover {
+  transform: scale(1.02); /* Subtle zoom on hover */
+}
+
+#form-title {
+  color: #4A90E2; /* Blue for trust */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #007BFF; /* Blue for focus */
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #FFC107; /* Yellow for attention */
+  box-shadow: 0 0 5px #FFC107;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1ABC9C; /* Green for action */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #28A745; /* Darker green */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+button:active {
+  transform: translateY(0); /* Reset on click */
+}
+
+.form-footer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #E91E63; /* Pink for highlight */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.form-footer a:hover {
+  color: #FF9900; /* Orange for energy */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #4A90E2; /* Blue for professionalism */
+  color: #FFFFFF;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shyaka Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="groceries.html">Groceries</a>
+      <a href="furniture.html">Furniture</a>
+      <a href="sports.html">Sports</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Welcome to Shyaka Store</h2>
+    <p style="text-align: center;">Browse through our categories to find the products you love!</p>
+  </main>
+  <div class="form-container">
+    <h2 id="form-title">Sign In</h2>
+    <form id="auth-form" action="auth.php" method="POST">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <!-- Additional Fields for Sign-Up -->
+      <div class="form-group" id="username-group" style="display: none;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username">
+      </div>
+      <div class="form-group" id="confirm-password-group" style="display: none;">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" id="submit-btn">Sign In</button>
+      </div>
+
+      <!-- Toggle Link -->
+      <div class="form-footer">
+        <a href="#" id="toggle-link">Don't have an account? Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const formTitle = document.getElementById('form-title');
+    const usernameGroup = document.getElementById('username-group');
+    const confirmPasswordGroup = document.getElementById('confirm-password-group');
+    const toggleLink = document.getElementById('toggle-link');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Toggle Sign-In/Sign-Up Form
+    toggleLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (formTitle.textContent === 'Sign In') {
+        formTitle.textContent = 'Sign Up';
+        usernameGroup.style.display = 'block';
+        confirmPasswordGroup.style.display = 'block';
+        submitBtn.textContent = 'Sign Up';
+        toggleLink.textContent = 'Already have an account? Sign In';
+      } else {
+        formTitle.textContent = 'Sign In';
+        usernameGroup.style.display = 'none';
+        confirmPasswordGroup.style.display = 'none';
+        submitBtn.textContent = 'Sign In';
+        toggleLink.textContent = "Don't have an account? Sign Up";
+      }
+    });
+  </script>
+  <footer>
+    &copy; 2024 Shyaka Store. All rights reserved.
+  </footer>
+</body>
+</html>

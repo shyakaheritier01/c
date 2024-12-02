@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Shyaka Store - Home</title>
+  <style>
+    /* Hero Section */
+.hero {
+  background-color: #4A90E2; /* Light blue for trust and reliability */
+  color: #FFFFFF;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero .btn-primary {
+  background-color: #28A745; /* Green for growth */
+  color: #FFFFFF;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.hero .btn-primary:hover {
+  background-color: #1ABC9C; /* Calm, fresh green */
+}
+
+/* Categories Section */
+.categories {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.categories .category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.categories .category-card {
+  background-color: #FF9900; /* Orange for inviting attention */
+  color: #FFFFFF;
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.categories .category-card:hover {
+  background-color: #FFA500; /* Lighter orange for hover effect */
+}
+
+/* Featured Products Section */
+.featured {
+  background-color: #F8F9FA; /* Neutral light gray */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.featured .product-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.featured .product {
+  background-color: #FFFFFF; /* Clean white product cards */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* About Section */
+.about {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #6A1B9A; /* Sophisticated purple */
+  color: #FFFFFF;
+}
+/* Header Styles */
+header {
+  background-color: #007BFF; /* Blue for trust and reliability */
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+/* Navigation Styles */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FFFFFF; /* White color for the links */
+  margin: 0 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Hover Effect for Links */
+nav a:hover {
+  background-color: #28A745; /* Green for growth */
+  color: #FFFFFF;
+}
+
+/* Responsive Design for Navigation */
+@media (max-width: 768px) {
+  nav {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Shyaka Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="groceries.html">Groceries</a>
+      <a href="furniture.html">Furniture</a>
+      <a href="sports.html">Sports</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Shyaka Store</h1>
+      <p>Your one-stop shop for all your needs. Discover amazing deals and products!</p>
+      <a href="electronics.html" class="btn-primary">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="categories">
+    <h1>Explore Our Categories</h1>
+    <div class="category-grid">
+      <a href="electronics.html" class="category-card">Electronics</a>
+      <a href="fashion.html" class="category-card">Fashion</a>
+      <a href="groceries.html" class="category-card">Groceries</a>
+      <a href="furniture.html" class="category-card">Furniture</a>
+      <a href="sports.html" class="category-card">Sports</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured">
+    <h1>Best Sellers</h1>
+    <div class="product-grid">
+      <div class="product">
+        <img src="image1.jpg" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>$10.00</p>
+      </div>
+      <div class="product">
+        <img src="image2.jpg" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>$20.00</p>
+      </div>
+      <div class="product">
+        <img src="image.jpg" alt="Product 3">
+        <h3>Product 3</h3>
+        <p>$15.00</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="about">
+    <h2>About Shyaka Store</h2>
+    <p>At Shyaka Store, we bring you the best quality products at unbeatable prices. Our mission is to ensure your shopping experience is seamless and enjoyable.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Shyaka Store. All rights reserved.</p>
+  </footer>
+</body>
+</html>

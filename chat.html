@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyaka Store - Chat</title>
+  <style>
+    /* Basic Styles for Chat Box */
+    .chat-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .messages {
+      height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      resize: none;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #28A745;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1ABC9C;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shyaka Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="groceries.html">Groceries</a>
+      <a href="furniture.html">Furniture</a>
+      <a href="sports.html">Sports</a>
+    </nav>
+  </header>
+
+  <!-- Chat Box -->
+  <section class="chat-box">
+    <div class="messages" id="messages">
+      <!-- Messages will appear here -->
+    </div>
+    <textarea id="messageInput" placeholder="Type a message..." rows="3"></textarea>
+    <button id="sendMessage">Send</button>
+  </section>
+
+  <script>
+    // Handle message sending
+    document.getElementById('sendMessage').addEventListener('click', function() {
+      var messageContent = document.getElementById('messageInput').value;
+      if (messageContent) {
+        sendMessage(messageContent);
+        document.getElementById('messageInput').value = ''; // Clear input
+      }
+    });
+
+    // Send message to backend using PHP
+    function sendMessage(content) {
+      fetch('chat.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: content })
+      })
+      .then(response => response.json())
+      .then(data => {
+        appendMessage('You', content);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    // Append messages to chat box
+    function appendMessage(sender, message) {
+      var messagesDiv = document.getElementById('messages');
+      var messageDiv = document.createElement('div');
+      messageDiv.textContent = sender + ': ' + message;
+      messagesDiv.appendChild(messageDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
+    }
+
+    // Fetch and display previous messages
+    function fetchMessages() {
+      fetch('chat.php?action=getMessages')
+        .then(response => response.json())
+        .then(data => {
+          data.messages.forEach(msg => appendMessage(msg.sender, msg.message));
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Fetch messages when the page loads
+    fetchMessages();
+    setInterval(fetchMessages, 5000); // Fetch new messages every 5 seconds
+  </script>
+</body>
+</html>
